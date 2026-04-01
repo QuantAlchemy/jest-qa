@@ -7,7 +7,7 @@
   <meta name="description" content="A daily dose of laughs for traders, quants, and builders. Tap to reveal the next joke.">
   <link rel="canonical" href="https://jest.quantalchemy.io">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="hsl(222, 47%, 11%)">
+  <meta name="theme-color" content="#080810">
 
   <!-- OG Tags -->
   <meta property="og:title" content="Jest | Quant Alchemy — Jokes for Traders & Builders">
@@ -50,7 +50,7 @@
   </script>
 
   <!-- Favicon: inline SVG data URI -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='hsl(222,47%25,11%25)'/%3E%3Cg transform='translate(6.4 12) scale(1)'%3E%3Cpath fill='%23fff' d='M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z'/%3E%3C/g%3E%3C!-- Jester hat --%3E%3Cpath d='M28 22 Q24 4 18 2' stroke='hsl(262,90%25,66%25)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='17' cy='1.5' r='3' fill='hsl(46,100%25,45%25)'/%3E%3Cpath d='M40 18 Q43 0 50 -2' stroke='hsl(46,100%25,45%25)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='51' cy='-2.5' r='3' fill='hsl(262,90%25,66%25)'/%3E%3Cpath d='M55 22 Q62 6 70 4' stroke='hsl(262,90%25,66%25)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='71' cy='3.5' r='3' fill='hsl(46,100%25,45%25)'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -30 120 130'%3E%3Crect x='0' y='0' width='100' height='100' rx='16' fill='%230f0f1a'/%3E%3Cg transform='translate(6.4 12)'%3E%3Cpath fill='%23f0ece4' d='M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z'/%3E%3C/g%3E%3Cpath d='M18 8 L24-2 L34 6 L44-4 L54 6 L64-2 L70 8Z' fill='%23c17d3c'/%3E%3Cpath d='M22 0C18-8 6-14-2-18' stroke='%23c17d3c' stroke-width='4' fill='none'/%3E%3Ccircle cx='-2' cy='-18' r='3.5' fill='%23e8a96a'/%3E%3Cpath d='M38-2C36-12 44-22 48-28' stroke='%23d4924f' stroke-width='4' fill='none'/%3E%3Ccircle cx='48' cy='-28' r='3.5' fill='%23e8a96a'/%3E%3Cpath d='M66 0C70-8 82-14 90-18' stroke='%23c17d3c' stroke-width='4' fill='none'/%3E%3Ccircle cx='90' cy='-18' r='3.5' fill='%23e8a96a'/%3E%3C/svg%3E">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,26 +61,49 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: hsl(222, 47%, 11%);
-      --purple: hsl(262, 90%, 66%);
-      --purple-dark: hsl(262, 80%, 58%);
-      --gold: hsl(46, 100%, 45%);
-      --gold-light: hsl(46, 100%, 53%);
-      --teal: hsl(159, 62%, 41%);
-      --text: hsl(210, 40%, 95%);
-      --text-muted: hsl(210, 20%, 55%);
+      --bg: #080810;
+      --bg-surface: #0f0f1a;
+      --bg-elevated: #16162a;
+      --copper: #c17d3c;
+      --copper-light: #d4924f;
+      --copper-bright: #e8a96a;
+      --copper-dark: #a06530;
+      --teal: #2a9d7e;
+      --text: #f0ece4;
+      --text-secondary: #9a9490;
+      --text-muted: #5a5550;
+      --border-subtle: rgba(240, 236, 228, 0.08);
+      --border-copper: rgba(193, 125, 60, 0.3);
+      /* Legacy aliases for animation code */
+      --purple: var(--copper);
+      --gold: var(--copper-bright);
+      --gold-light: var(--copper-light);
     }
 
     html, body {
       height: 100%;
       overflow: hidden;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top right, rgba(193, 125, 60, 0.1), transparent 24%),
+        radial-gradient(circle at top left, rgba(85, 46, 240, 0.06), transparent 18%),
+        var(--bg);
       color: var(--text);
       font-family: 'IBM Plex Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
       user-select: none;
       -webkit-user-select: none;
       cursor: pointer;
+    }
+
+    /* Noise overlay matching Krown site */
+    body::before {
+      content: '';
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      z-index: 0;
     }
 
     /* Particle background */
@@ -119,9 +142,9 @@
 
     /* Logo */
     .logo {
-      width: 64px;
-      height: 64px;
-      filter: drop-shadow(0 0 12px hsla(262, 90%, 66%, 0.4));
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0 0 12px rgba(193, 125, 60, 0.4));
       animation: glow-pulse 3s ease-in-out infinite;
       transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       flex-shrink: 0;
@@ -132,8 +155,8 @@
     }
 
     @keyframes glow-pulse {
-      0%, 100% { filter: drop-shadow(0 0 12px hsla(262, 90%, 66%, 0.3)); }
-      50% { filter: drop-shadow(0 0 20px hsla(262, 90%, 66%, 0.6)); }
+      0%, 100% { filter: drop-shadow(0 0 12px rgba(193, 125, 60, 0.3)); }
+      50% { filter: drop-shadow(0 0 20px rgba(193, 125, 60, 0.6)); }
     }
 
     @keyframes wiggle {
@@ -150,7 +173,7 @@
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 500;
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       letter-spacing: 0.05em;
       flex-shrink: 0;
     }
@@ -161,11 +184,11 @@
       width: 100%;
       padding: 2.5rem 2rem;
       border-radius: 1rem;
-      background: hsla(222, 47%, 15%, 0.6);
-      border: 1px solid hsla(262, 90%, 66%, 0.12);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-copper);
       box-shadow:
-        0 0 40px hsla(262, 90%, 66%, 0.08),
-        0 4px 24px hsla(0, 0%, 0%, 0.3);
+        0 0 40px rgba(193, 125, 60, 0.06),
+        0 4px 24px rgba(0, 0, 0, 0.3);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
@@ -173,8 +196,8 @@
       .card:hover {
         transform: translateY(-2px);
         box-shadow:
-          0 0 50px hsla(262, 90%, 66%, 0.14),
-          0 8px 32px hsla(0, 0%, 0%, 0.35);
+          0 0 50px rgba(193, 125, 60, 0.12),
+          0 8px 32px rgba(0, 0, 0, 0.35);
       }
     }
 
@@ -194,19 +217,19 @@
     }
 
     .joke-text .scrambling {
-      color: var(--purple);
+      color: var(--copper);
     }
 
     /* CTA banner */
     .cta {
       font-size: 0.85rem;
       font-weight: 500;
-      color: var(--gold);
+      color: var(--copper-bright);
       text-decoration: none;
       padding: 0.45rem 1.2rem;
       border-radius: 999px;
-      border: 1px solid hsla(46, 100%, 45%, 0.25);
-      background: hsla(46, 100%, 45%, 0.08);
+      border: 1px solid var(--border-copper);
+      background: rgba(193, 125, 60, 0.08);
       opacity: 0;
       transform: translateY(6px);
       transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease;
@@ -221,7 +244,7 @@
     }
 
     .cta:hover {
-      background: hsla(46, 100%, 45%, 0.15);
+      background: rgba(193, 125, 60, 0.15);
     }
 
     /* Hint */
@@ -252,18 +275,25 @@
   <!-- App -->
   <div class="app" id="app">
     <!-- Logo: Jester QA SVG -->
-    <svg class="logo" id="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100" height="100" rx="16" fill="var(--bg)"/>
+    <svg class="logo" id="logo" viewBox="-10 -30 120 130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="100" height="100" rx="16" fill="var(--bg-surface)"/>
+      <!-- QA icon -->
       <g transform="translate(6.4 12) scale(1)">
-        <path fill="#fff" d="M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z"/>
+        <path fill="var(--text)" d="M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z"/>
       </g>
-      <!-- Jester hat tips -->
-      <path d="M28 22 Q24 4 18 2" stroke="var(--purple)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="17" cy="1.5" r="3" fill="var(--gold)"/>
-      <path d="M40 18 Q43 0 50 -2" stroke="var(--gold)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="51" cy="-2.5" r="3" fill="var(--purple)"/>
-      <path d="M55 22 Q62 6 70 4" stroke="var(--purple)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="71" cy="3.5" r="3" fill="var(--gold)"/>
+      <!-- Jester hat: 3 floppy curved points with bells -->
+      <!-- Crown base: zigzag band sitting on top of the icon -->
+      <path d="M18 8 L24 -2 L34 6 L44 -4 L54 6 L64 -2 L70 8 Z" fill="var(--copper)" opacity="0.9"/>
+      <path d="M18 8 L24 -2 L34 6 L44 -4 L54 6 L64 -2 L70 8" fill="none" stroke="var(--copper-dark)" stroke-width="0.8"/>
+      <!-- Left point: curves out and down-left -->
+      <path d="M22 0 C18 -8, 6 -14, -2 -18 C-4 -19, -8 -16, -6 -14" fill="var(--copper)" stroke="var(--copper-dark)" stroke-width="0.5"/>
+      <circle cx="-6" cy="-15" r="3.5" fill="var(--copper-bright)" stroke="var(--copper-dark)" stroke-width="0.5"/>
+      <!-- Center point: tallest, curves up -->
+      <path d="M38 -2 C36 -12, 44 -22, 48 -28 C50 -30, 52 -28, 50 -26" fill="var(--copper-light)" stroke="var(--copper-dark)" stroke-width="0.5"/>
+      <circle cx="49" cy="-28" r="3.5" fill="var(--copper-bright)" stroke="var(--copper-dark)" stroke-width="0.5"/>
+      <!-- Right point: curves out and down-right -->
+      <path d="M66 0 C70 -8, 82 -14, 90 -18 C92 -19, 96 -16, 94 -14" fill="var(--copper)" stroke="var(--copper-dark)" stroke-width="0.5"/>
+      <circle cx="94" cy="-15" r="3.5" fill="var(--copper-bright)" stroke="var(--copper-dark)" stroke-width="0.5"/>
     </svg>
 
     <div class="counter" id="counter"></div>
