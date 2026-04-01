@@ -274,26 +274,42 @@
 
   <!-- App -->
   <div class="app" id="app">
-    <!-- Logo: Jester QA SVG -->
-    <svg class="logo" id="logo" viewBox="-10 -30 120 130" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="0" width="100" height="100" rx="16" fill="var(--bg-surface)"/>
-      <!-- QA icon -->
-      <g transform="translate(6.4 12) scale(1)">
-        <path fill="var(--text)" d="M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z"/>
+    <!-- Logo: Jester QA SVG with copper gradient icon + mardi gras hat -->
+    <svg class="logo" id="logo" viewBox="-15 -42 130 142" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="copper-grad" x1="0" y1="43.59" x2="87.18" y2="43.59" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#e8a96a"/>
+          <stop offset="1" stop-color="#c17d3c"/>
+        </linearGradient>
+        <linearGradient id="hat-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0" stop-color="#e8a96a"/>
+          <stop offset="1" stop-color="#a06530"/>
+        </linearGradient>
+        <linearGradient id="hat-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0" stop-color="#c17d3c"/>
+          <stop offset="1" stop-color="#e8a96a"/>
+        </linearGradient>
+      </defs>
+      <!-- QA icon with copper gradient -->
+      <g transform="translate(6.4 12)">
+        <path fill="url(#copper-grad)" d="M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z"/>
       </g>
-      <!-- Jester hat: 3 floppy curved points with bells -->
-      <!-- Crown base: zigzag band sitting on top of the icon -->
-      <path d="M18 8 L24 -2 L34 6 L44 -4 L54 6 L64 -2 L70 8 Z" fill="var(--copper)" opacity="0.9"/>
-      <path d="M18 8 L24 -2 L34 6 L44 -4 L54 6 L64 -2 L70 8" fill="none" stroke="var(--copper-dark)" stroke-width="0.8"/>
-      <!-- Left point: curves out and down-left -->
-      <path d="M22 0 C18 -8, 6 -14, -2 -18 C-4 -19, -8 -16, -6 -14" fill="var(--copper)" stroke="var(--copper-dark)" stroke-width="0.5"/>
-      <circle cx="-6" cy="-15" r="3.5" fill="var(--copper-bright)" stroke="var(--copper-dark)" stroke-width="0.5"/>
-      <!-- Center point: tallest, curves up -->
-      <path d="M38 -2 C36 -12, 44 -22, 48 -28 C50 -30, 52 -28, 50 -26" fill="var(--copper-light)" stroke="var(--copper-dark)" stroke-width="0.5"/>
-      <circle cx="49" cy="-28" r="3.5" fill="var(--copper-bright)" stroke="var(--copper-dark)" stroke-width="0.5"/>
-      <!-- Right point: curves out and down-right -->
-      <path d="M66 0 C70 -8, 82 -14, 90 -18 C92 -19, 96 -16, 94 -14" fill="var(--copper)" stroke="var(--copper-dark)" stroke-width="0.5"/>
-      <circle cx="94" cy="-15" r="3.5" fill="var(--copper-bright)" stroke="var(--copper-dark)" stroke-width="0.5"/>
+      <!-- Jester hat: mardi gras style with 3 floppy swooping points -->
+      <!-- Crown band with zigzag top edge -->
+      <path d="M12 10 L12 4 L22 -3 L34 5 L44 -5 L56 5 L68 -3 L78 4 L78 10 Z" fill="url(#hat-grad-1)"/>
+      <path d="M12 10 L12 4 L22 -3 L34 5 L44 -5 L56 5 L68 -3 L78 4 L78 10" fill="none" stroke="#a06530" stroke-width="0.6"/>
+      <!-- Left floppy point: S-curve swooping out and down-left -->
+      <path d="M18 0 C14 -6, 8 -14, 0 -20 C-6 -24, -14 -22, -10 -16 C-8 -12, -4 -14, -2 -18" fill="url(#hat-grad-2)" stroke="#a06530" stroke-width="0.5"/>
+      <circle cx="-3" cy="-19" r="4" fill="#e8a96a" stroke="#a06530" stroke-width="0.6"/>
+      <circle cx="-3" cy="-19" r="1.5" fill="#a06530" opacity="0.4"/>
+      <!-- Center point: tallest, curves up with a voluminous swoosh -->
+      <path d="M38 -3 C36 -10, 40 -20, 44 -28 C46 -34, 52 -38, 54 -32 C55 -28, 50 -28, 48 -30" fill="url(#hat-grad-1)" stroke="#a06530" stroke-width="0.5"/>
+      <circle cx="50" cy="-33" r="4" fill="#e8a96a" stroke="#a06530" stroke-width="0.6"/>
+      <circle cx="50" cy="-33" r="1.5" fill="#a06530" opacity="0.4"/>
+      <!-- Right floppy point: S-curve swooping out and down-right -->
+      <path d="M72 0 C76 -6, 82 -14, 90 -20 C96 -24, 104 -22, 100 -16 C98 -12, 94 -14, 92 -18" fill="url(#hat-grad-2)" stroke="#a06530" stroke-width="0.5"/>
+      <circle cx="93" cy="-19" r="4" fill="#e8a96a" stroke="#a06530" stroke-width="0.6"/>
+      <circle cx="93" cy="-19" r="1.5" fill="#a06530" opacity="0.4"/>
     </svg>
 
     <div class="counter" id="counter"></div>
