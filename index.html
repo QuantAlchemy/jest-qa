@@ -237,6 +237,45 @@
       color: var(--copper);
     }
 
+    /* Copy button */
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 1rem auto 0;
+      padding: 0.3rem 0.7rem;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      opacity: 0;
+      animation: fade-in 0.4s ease 0.8s forwards;
+    }
+
+    .copy-btn:hover {
+      color: var(--copper-bright);
+      border-color: var(--border-copper);
+      background: rgba(193, 125, 60, 0.06);
+    }
+
+    .copy-btn.copied {
+      color: var(--teal);
+      border-color: rgba(42, 157, 126, 0.3);
+    }
+
+    .copy-icon {
+      width: 13px;
+      height: 13px;
+    }
+
+    @keyframes fade-in {
+      to { opacity: 1; }
+    }
+
     /* Hint + CTAs: same column as .card, CTAs just below help text */
     .bottom-stack {
       max-width: var(--content-max);
@@ -376,6 +415,10 @@
 
     <div class="card">
       <div class="joke-text" id="joke"></div>
+      <button class="copy-btn" id="copy-btn" onclick="event.stopPropagation(); copyJoke()" title="Copy joke">
+        <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span class="copy-label" id="copy-label">Copy</span>
+      </button>
     </div>
 
     <div class="bottom-stack">
@@ -569,6 +612,23 @@
       });
     }
 
+    // --- Copy joke (exposed globally for onclick) ---
+    let currentJokeText = '';
+
+    window.copyJoke = function() {
+      if (!currentJokeText) return;
+      navigator.clipboard.writeText(currentJokeText).then(() => {
+        const btn = document.getElementById('copy-btn');
+        const label = document.getElementById('copy-label');
+        btn.classList.add('copied');
+        label.textContent = 'Copied!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          label.textContent = 'Copy';
+        }, 1500);
+      });
+    }
+
     function escHtml(c) {
       if (c === '&') return '&amp;';
       if (c === '<') return '&lt;';
@@ -583,6 +643,7 @@
       if (isAnimating) return;
 
       const joke = order[idx];
+      currentJokeText = joke;
       idx++;
       if (idx >= order.length) {
         order = shuffle(JOKES);
