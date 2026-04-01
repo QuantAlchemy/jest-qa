@@ -61,6 +61,8 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
+      --app-pad-x: 1.5rem;
+      --content-max: 580px;
       --bg: #080810;
       --bg-surface: #0f0f1a;
       --bg-elevated: #16162a;
@@ -136,7 +138,7 @@
       align-items: center;
       justify-content: center;
       height: 100%;
-      padding: 2rem 1.5rem;
+      padding: 2rem var(--app-pad-x);
       gap: 1.5rem;
     }
 
@@ -195,7 +197,7 @@
 
     /* Joke card */
     .card {
-      max-width: 580px;
+      max-width: var(--content-max);
       width: 100%;
       padding: 2.5rem 2rem;
       border-radius: 1rem;
@@ -235,34 +237,50 @@
       color: var(--copper);
     }
 
-    /* Corner CTAs */
-    .corner-cta {
-      position: fixed;
-      bottom: 1.5rem;
+    /* Hint + CTAs: same column as .card, CTAs just below help text */
+    .bottom-stack {
+      max-width: var(--content-max);
+      width: 100%;
+      flex-shrink: 0;
       display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 2rem;
+    }
+
+    .cta-row {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 0;
+    }
+
+    /* QA: card left edge; Krown: card right edge (only one visible at a time) */
+    #cta-qa.visible {
+      margin-right: auto;
+    }
+
+    #cta-krown.visible {
+      margin-left: auto;
+    }
+
+    /* Inline CTAs (flow below hint; horizontal alignment via rules above) */
+    .corner-cta {
+      display: none;
       align-items: center;
       gap: 0.6rem;
       text-decoration: none;
       color: var(--copper-bright);
       opacity: 0;
-      pointer-events: none;
+      transform: translateY(6px);
       transition: opacity 0.6s ease, transform 0.6s ease;
-      z-index: 10;
-    }
-
-    .corner-left {
-      left: 1.2rem;
-      transform: translateX(-20px);
-    }
-
-    .corner-right {
-      right: 1.2rem;
-      transform: translateX(20px);
     }
 
     .corner-cta.visible {
+      display: flex;
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
       pointer-events: auto;
     }
 
@@ -296,13 +314,14 @@
       color: var(--copper-light);
     }
 
-    /* Hint */
     .hint {
       font-size: 0.78rem;
       color: var(--text-muted);
       letter-spacing: 0.04em;
       opacity: 0.7;
       flex-shrink: 0;
+      width: 100%;
+      text-align: center;
     }
 
     /* Mobile adjustments */
@@ -373,25 +392,25 @@
       <div class="joke-text" id="joke"></div>
     </div>
 
-    <!-- Corner CTA: bottom-left QA icon -->
-    <a class="corner-cta corner-left" id="cta-qa" href="https://quantalchemy.io" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-      <svg class="corner-icon" viewBox="0 0 87.18 87.18" xmlns="http://www.w3.org/2000/svg">
-        <path fill="currentColor" d="M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z"/>
-      </svg>
-      <span class="corner-text" id="cta-qa-text"></span>
-    </a>
-
-    <!-- Corner CTA: bottom-right Krown icon -->
-    <a class="corner-cta corner-right" id="cta-krown" href="https://krown.quantalchemy.io" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-      <span class="corner-text" id="cta-krown-text"></span>
-      <svg class="corner-icon" viewBox="0 0 82 96" xmlns="http://www.w3.org/2000/svg">
-        <path fill="currentColor" d="M53.4228 2.634L47.4228 4.922C46.6278 5.226 45.4878 5.042 45.1428 4.554L42.3078 0.522C41.8278 -0.174 39.9828 -0.174 39.5028 0.522L36.6528 4.546C36.3078 5.042 35.1828 5.226 34.3878 4.914L28.3878 2.626C27.1878 2.178 25.5978 2.81 26.0928 3.554L31.1478 12.874C35.6478 11.0188 46.1478 11.0188 50.6478 12.874L55.7028 3.554C56.1978 2.81 54.6078 2.178 53.4228 2.634Z"/>
-        <path fill="currentColor" d="M17.1133 73.9716C13.0911 68.7231 10.6889 62.1484 10.6889 55.0094C10.6889 37.9002 24.4688 23.9702 41.4144 23.9702C58.36 23.9702 72.1399 37.8908 72.1399 55.0094C72.1399 57.2574 71.8978 59.449 71.4509 61.5559L77.9313 72.8899C80.5383 67.4815 82 61.4148 82 55C82 32.3884 63.7974 14 41.4144 14C19.0313 14 0.828857 32.3884 0.828857 55C0.828857 77.6116 19.0313 96 41.4144 96C45.3621 96 49.1703 95.4262 52.7829 94.3634L47.6527 85.3902C45.6323 85.8135 43.5466 86.0298 41.4144 86.0298C35.1855 86.0298 29.3756 84.1393 24.534 80.9036L41.3306 51.5104L66.749 95.9906H78.136L41.3306 31.5795L17.1133 73.9433V73.9716Z"/>
-        <path fill="currentColor" d="M10.2418 14.1223H0V95.9529H10.2418V14.1223Z"/>
-      </svg>
-    </a>
-
-    <div class="hint">tap anywhere &middot; swipe to skip</div>
+    <div class="bottom-stack">
+      <div class="hint">tap anywhere &middot; swipe to skip</div>
+      <div class="cta-row">
+        <a class="corner-cta" id="cta-qa" href="https://quantalchemy.io" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+          <svg class="corner-icon" viewBox="0 0 87.18 87.18" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z"/>
+          </svg>
+          <span class="corner-text" id="cta-qa-text"></span>
+        </a>
+        <a class="corner-cta" id="cta-krown" href="https://krown.quantalchemy.io" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+          <span class="corner-text" id="cta-krown-text"></span>
+          <svg class="corner-icon" viewBox="0 0 82 96" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M53.4228 2.634L47.4228 4.922C46.6278 5.226 45.4878 5.042 45.1428 4.554L42.3078 0.522C41.8278 -0.174 39.9828 -0.174 39.5028 0.522L36.6528 4.546C36.3078 5.042 35.1828 5.226 34.3878 4.914L28.3878 2.626C27.1878 2.178 25.5978 2.81 26.0928 3.554L31.1478 12.874C35.6478 11.0188 46.1478 11.0188 50.6478 12.874L55.7028 3.554C56.1978 2.81 54.6078 2.178 53.4228 2.634Z"/>
+            <path fill="currentColor" d="M17.1133 73.9716C13.0911 68.7231 10.6889 62.1484 10.6889 55.0094C10.6889 37.9002 24.4688 23.9702 41.4144 23.9702C58.36 23.9702 72.1399 37.8908 72.1399 55.0094C72.1399 57.2574 71.8978 59.449 71.4509 61.5559L77.9313 72.8899C80.5383 67.4815 82 61.4148 82 55C82 32.3884 63.7974 14 41.4144 14C19.0313 14 0.828857 32.3884 0.828857 55C0.828857 77.6116 19.0313 96 41.4144 96C45.3621 96 49.1703 95.4262 52.7829 94.3634L47.6527 85.3902C45.6323 85.8135 43.5466 86.0298 41.4144 86.0298C35.1855 86.0298 29.3756 84.1393 24.534 80.9036L41.3306 51.5104L66.749 95.9906H78.136L41.3306 31.5795L17.1133 73.9433V73.9716Z"/>
+            <path fill="currentColor" d="M10.2418 14.1223H0V95.9529H10.2418V14.1223Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 
   <script src="jokes.js"></script>
