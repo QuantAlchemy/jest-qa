@@ -302,9 +302,7 @@
       <div class="joke-text" id="joke"></div>
     </div>
 
-    <a class="cta" id="cta" href="https://quantalchemy.io" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-      Want more alpha? &rarr; quantalchemy.io
-    </a>
+    <a class="cta" id="cta" href="https://quantalchemy.io" target="_blank" rel="noopener" onclick="event.stopPropagation()"></a>
 
     <div class="hint">tap anywhere &middot; swipe to skip</div>
   </div>
@@ -362,6 +360,22 @@
     const logoEl = document.getElementById('logo');
 
     // --- Text Scramble Engine ---
+    const CTA_LINES = [
+      'Looking for a good time? → quantalchemy.io',
+      'Want more fun? → quantalchemy.io',
+      'Done laughing? Time to profit → quantalchemy.io',
+      'Jokes are free. Alpha isn\'t → quantalchemy.io',
+      'Your portfolio called. It wants help → quantalchemy.io',
+      'Still here? You might like this → quantalchemy.io',
+      'Need a different kind of rush? → quantalchemy.io',
+      'Trading is funnier with edge → quantalchemy.io',
+      'Enough jokes. Let\'s make money → quantalchemy.io',
+      'This one\'s not a joke → quantalchemy.io',
+      'Your broker is less fun than us → quantalchemy.io',
+      'Laughing all the way to the bank? → quantalchemy.io',
+    ];
+    let ctaIdx = 0;
+
     const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
 
     function scrambleIn(text) {
@@ -481,8 +495,10 @@
       jokeCount++;
       counterEl.textContent = `${jokeCount} / ${JOKES.length}`;
 
-      // CTA every 3rd joke
+      // CTA every 3rd joke with rotating text
       if (jokeCount > 1 && jokeCount % 3 === 0) {
+        ctaEl.textContent = CTA_LINES[ctaIdx % CTA_LINES.length];
+        ctaIdx++;
         ctaEl.classList.add('visible');
       } else {
         ctaEl.classList.remove('visible');
