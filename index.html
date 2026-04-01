@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jest | Quant Alchemy — Jokes for Traders & Builders</title>
+  <meta name="description" content="A daily dose of laughs for traders, quants, and builders. Tap to reveal the next joke.">
+  <link rel="canonical" href="https://jest.quantalchemy.io">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="hsl(222, 47%, 11%)">
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="Jest | Quant Alchemy — Jokes for Traders & Builders">
+  <meta property="og:description" content="A daily dose of laughs for traders, quants, and builders. Tap to reveal the next joke.">
+  <meta property="og:url" content="https://jest.quantalchemy.io">
+  <meta property="og:image" content="https://jest.quantalchemy.io/og.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Quant Alchemy">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@QuantAlchemyX">
+  <meta name="twitter:title" content="Jest | Quant Alchemy — Jokes for Traders & Builders">
+  <meta name="twitter:description" content="A daily dose of laughs for traders, quants, and builders. Tap to reveal the next joke.">
+  <meta name="twitter:image" content="https://jest.quantalchemy.io/og.png">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Quant Alchemy",
+        "url": "https://quantalchemy.io"
+      },
+      {
+        "@type": "WebPage",
+        "name": "Jest | Quant Alchemy — Jokes for Traders & Builders",
+        "description": "A daily dose of laughs for traders, quants, and builders. Tap to reveal the next joke.",
+        "url": "https://jest.quantalchemy.io",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Quant Alchemy",
+          "url": "https://quantalchemy.io"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicon: inline SVG data URI -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='hsl(222,47%25,11%25)'/%3E%3Cg transform='translate(6.4 12) scale(1)'%3E%3Cpath fill='%23fff' d='M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z'/%3E%3C/g%3E%3C!-- Jester hat --%3E%3Cpath d='M28 22 Q24 4 18 2' stroke='hsl(262,90%25,66%25)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='17' cy='1.5' r='3' fill='hsl(46,100%25,45%25)'/%3E%3Cpath d='M40 18 Q43 0 50 -2' stroke='hsl(46,100%25,45%25)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='51' cy='-2.5' r='3' fill='hsl(262,90%25,66%25)'/%3E%3Cpath d='M55 22 Q62 6 70 4' stroke='hsl(262,90%25,66%25)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='71' cy='3.5' r='3' fill='hsl(46,100%25,45%25)'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;1,700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: hsl(222, 47%, 11%);
+      --purple: hsl(262, 90%, 66%);
+      --purple-dark: hsl(262, 80%, 58%);
+      --gold: hsl(46, 100%, 45%);
+      --gold-light: hsl(46, 100%, 53%);
+      --teal: hsl(159, 62%, 41%);
+      --text: hsl(210, 40%, 95%);
+      --text-muted: hsl(210, 20%, 55%);
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+    }
+
+    /* Particle background */
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--text);
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: var(--p-opacity); }
+      50% { transform: translateY(calc(var(--drift-y) * 0.5)) translateX(var(--drift-x)); opacity: calc(var(--p-opacity) * 1.2); }
+      100% { transform: translateY(var(--drift-y)) translateX(calc(var(--drift-x) * 0.5)); opacity: 0; }
+    }
+
+    /* Main layout */
+    .app {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 2rem 1.5rem;
+      gap: 1.5rem;
+    }
+
+    /* Logo */
+    .logo {
+      width: 64px;
+      height: 64px;
+      filter: drop-shadow(0 0 12px hsla(262, 90%, 66%, 0.4));
+      animation: glow-pulse 3s ease-in-out infinite;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+    }
+
+    .logo.wiggle {
+      animation: wiggle 0.5s ease-in-out;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { filter: drop-shadow(0 0 12px hsla(262, 90%, 66%, 0.3)); }
+      50% { filter: drop-shadow(0 0 20px hsla(262, 90%, 66%, 0.6)); }
+    }
+
+    @keyframes wiggle {
+      0% { transform: rotate(0deg) scale(1); }
+      20% { transform: rotate(-12deg) scale(1.05); }
+      40% { transform: rotate(10deg) scale(1.05); }
+      60% { transform: rotate(-6deg) scale(1.02); }
+      80% { transform: rotate(4deg) scale(1.01); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+
+    /* Counter */
+    .counter {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    /* Joke card */
+    .card {
+      max-width: 580px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      background: hsla(222, 47%, 15%, 0.6);
+      border: 1px solid hsla(262, 90%, 66%, 0.12);
+      box-shadow:
+        0 0 40px hsla(262, 90%, 66%, 0.08),
+        0 4px 24px hsla(0, 0%, 0%, 0.3);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    @media (hover: hover) {
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 0 50px hsla(262, 90%, 66%, 0.14),
+          0 8px 32px hsla(0, 0%, 0%, 0.35);
+      }
+    }
+
+    .joke-text {
+      font-family: 'Fraunces', serif;
+      font-size: 1.65rem;
+      line-height: 1.5;
+      text-align: center;
+      min-height: 3em;
+      display: block;
+      word-break: break-word;
+    }
+
+    .joke-text span {
+      display: inline;
+      transition: color 0.05s;
+    }
+
+    .joke-text .scrambling {
+      color: var(--purple);
+    }
+
+    /* CTA banner */
+    .cta {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 0.45rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid hsla(46, 100%, 45%, 0.25);
+      background: hsla(46, 100%, 45%, 0.08);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease;
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+
+    .cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .cta:hover {
+      background: hsla(46, 100%, 45%, 0.15);
+    }
+
+    /* Hint */
+    .hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .joke-text {
+        font-size: 1.3rem;
+      }
+      .card {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- App -->
+  <div class="app" id="app">
+    <!-- Logo: Jester QA SVG -->
+    <svg class="logo" id="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="16" fill="var(--bg)"/>
+      <g transform="translate(6.4 12) scale(1)">
+        <path fill="#fff" d="M17.49,63.75c-4.32-5.58-6.9-12.57-6.9-20.16,0-18.19,14.8-33,33-33s33,14.8,33,33c0,2.39-.26,4.72-.74,6.96l6.96,12.05c2.8-5.75,4.37-12.2,4.37-19.02C87.18,19.55,67.62,0,43.59,0S0,19.55,0,43.59s19.55,43.59,43.59,43.59c4.24,0,8.33-.61,12.21-1.74l-5.51-9.54c-2.17.45-4.41.68-6.7.68-6.69,0-12.93-2.01-18.13-5.45l18.04-31.25,27.3,47.29h12.23L43.5,18.7l-26.01,45.04Z"/>
+      </g>
+      <!-- Jester hat tips -->
+      <path d="M28 22 Q24 4 18 2" stroke="var(--purple)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="17" cy="1.5" r="3" fill="var(--gold)"/>
+      <path d="M40 18 Q43 0 50 -2" stroke="var(--gold)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="51" cy="-2.5" r="3" fill="var(--purple)"/>
+      <path d="M55 22 Q62 6 70 4" stroke="var(--purple)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="71" cy="3.5" r="3" fill="var(--gold)"/>
+    </svg>
+
+    <div class="counter" id="counter"></div>
+
+    <div class="card">
+      <div class="joke-text" id="joke"></div>
+    </div>
+
+    <a class="cta" id="cta" href="https://quantalchemy.io" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+      Want more alpha? &rarr; quantalchemy.io
+    </a>
+
+    <div class="hint">tap anywhere &middot; swipe to skip</div>
+  </div>
+
+  <script src="jokes.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    // --- Particles ---
+    const particlesEl = document.getElementById('particles');
+    const PARTICLE_COUNT = 25;
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 3 + 1;
+      const opacity = Math.random() * 0.3 + 0.05;
+      const left = Math.random() * 100;
+      const top = Math.random() * 100;
+      const duration = Math.random() * 20 + 15;
+      const delay = Math.random() * -30;
+      const driftX = (Math.random() - 0.5) * 80;
+      const driftY = -(Math.random() * 600 + 300);
+      p.style.cssText = `
+        width:${size}px;height:${size}px;
+        left:${left}%;top:${top}%;
+        --p-opacity:${opacity};
+        --drift-x:${driftX}px;
+        --drift-y:${driftY}px;
+        animation-duration:${duration}s;
+        animation-delay:${delay}s;
+      `;
+      particlesEl.appendChild(p);
+    }
+
+    // --- Fisher-Yates shuffle ---
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    // --- Joke state ---
+    let order = shuffle(JOKES);
+    let idx = 0;
+    let jokeCount = 0;
+    let isAnimating = false;
+
+    const jokeEl = document.getElementById('joke');
+    const counterEl = document.getElementById('counter');
+    const ctaEl = document.getElementById('cta');
+    const logoEl = document.getElementById('logo');
+
+    // --- Text Scramble Engine ---
+    const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+
+    function scrambleIn(text) {
+      return new Promise(resolve => {
+        isAnimating = true;
+        const len = text.length;
+        const resolved = new Array(len).fill(false);
+        const current = new Array(len);
+
+        // Init all to random
+        for (let i = 0; i < len; i++) {
+          current[i] = text[i] === ' ' ? ' ' : CHARS[Math.floor(Math.random() * CHARS.length)];
+        }
+
+        const totalDuration = 800;
+        const perChar = totalDuration / len;
+        let frame;
+
+        function render() {
+          let html = '';
+          for (let i = 0; i < len; i++) {
+            if (text[i] === ' ') {
+              html += ' ';
+            } else if (resolved[i]) {
+              html += `<span>${escHtml(current[i])}</span>`;
+            } else {
+              html += `<span class="scrambling">${escHtml(current[i])}</span>`;
+            }
+          }
+          jokeEl.innerHTML = html;
+        }
+
+        // Scramble interval
+        const scrambleInterval = setInterval(() => {
+          for (let i = 0; i < len; i++) {
+            if (!resolved[i] && text[i] !== ' ') {
+              current[i] = CHARS[Math.floor(Math.random() * CHARS.length)];
+            }
+          }
+          render();
+        }, 30);
+
+        // Resolve chars left-to-right with stagger
+        for (let i = 0; i < len; i++) {
+          if (text[i] === ' ') {
+            resolved[i] = true;
+            current[i] = ' ';
+            continue;
+          }
+          setTimeout(() => {
+            resolved[i] = true;
+            current[i] = text[i];
+            if (i === len - 1 || resolved.every(Boolean)) {
+              clearInterval(scrambleInterval);
+              render();
+              isAnimating = false;
+              resolve();
+            }
+          }, perChar * i + 80);
+        }
+
+        render();
+      });
+    }
+
+    function scrambleOut() {
+      return new Promise(resolve => {
+        const currentText = jokeEl.textContent || '';
+        if (!currentText.trim()) { resolve(); return; }
+
+        const len = currentText.length;
+        let iterations = 0;
+        const maxIterations = 8;
+
+        const interval = setInterval(() => {
+          let html = '';
+          const opacity = 1 - (iterations / maxIterations);
+          for (let i = 0; i < len; i++) {
+            if (currentText[i] === ' ') {
+              html += ' ';
+            } else {
+              const c = CHARS[Math.floor(Math.random() * CHARS.length)];
+              html += `<span class="scrambling" style="opacity:${opacity}">${escHtml(c)}</span>`;
+            }
+          }
+          jokeEl.innerHTML = html;
+          iterations++;
+          if (iterations >= maxIterations) {
+            clearInterval(interval);
+            jokeEl.innerHTML = '';
+            resolve();
+          }
+        }, 30);
+      });
+    }
+
+    function escHtml(c) {
+      if (c === '&') return '&amp;';
+      if (c === '<') return '&lt;';
+      if (c === '>') return '&gt;';
+      if (c === '"') return '&quot;';
+      if (c === "'") return '&#39;';
+      return c;
+    }
+
+    // --- Show joke ---
+    async function showJoke(first) {
+      if (isAnimating) return;
+
+      const joke = order[idx];
+      idx++;
+      if (idx >= order.length) {
+        order = shuffle(JOKES);
+        idx = 0;
+      }
+
+      jokeCount++;
+      counterEl.textContent = `${jokeCount} / ${JOKES.length}`;
+
+      // CTA every 3rd joke
+      if (jokeCount > 1 && jokeCount % 3 === 0) {
+        ctaEl.classList.add('visible');
+      } else {
+        ctaEl.classList.remove('visible');
+      }
+
+      // Wiggle logo
+      logoEl.classList.remove('wiggle');
+      void logoEl.offsetWidth;
+      logoEl.classList.add('wiggle');
+
+      if (!first) {
+        await scrambleOut();
+      }
+      await scrambleIn(joke);
+    }
+
+    // --- Interactions ---
+    // Click
+    document.addEventListener('click', () => showJoke(false));
+
+    // Keyboard
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space' || e.code === 'ArrowRight') {
+        e.preventDefault();
+        showJoke(false);
+      }
+    });
+
+    // Swipe
+    let touchStartX = 0;
+    let touchStartY = 0;
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+        showJoke(false);
+      }
+    }, { passive: true });
+
+    // --- Init ---
+    showJoke(true);
+  })();
+  </script>
+
+</body>
+</html>
