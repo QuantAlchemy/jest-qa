@@ -303,6 +303,8 @@
       text-decoration: none;
       color: var(--copper-bright);
       pointer-events: auto;
+      min-width: 0;
+      flex: 0 1 auto;
     }
 
     .corner-cta:hover {
@@ -330,9 +332,9 @@
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 0.78rem;
       font-weight: 500;
-      white-space: nowrap;
       opacity: 0;
       transition: opacity 0.4s ease 0.2s;
+      min-width: 0;
     }
 
     .corner-cta.visible .corner-text {
