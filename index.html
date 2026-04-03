@@ -291,7 +291,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       min-height: 0;
     }
 
@@ -303,6 +303,7 @@
       text-decoration: none;
       color: var(--copper-bright);
       pointer-events: auto;
+      flex: 0 0 auto;
     }
 
     .corner-cta:hover {
@@ -330,12 +331,15 @@
       font-family: 'IBM Plex Sans', sans-serif;
       font-size: 0.78rem;
       font-weight: 500;
+      line-height: 1.35;
       white-space: nowrap;
+      display: none;
       opacity: 0;
       transition: opacity 0.4s ease 0.2s;
     }
 
     .corner-cta.visible .corner-text {
+      display: block;
       opacity: 1;
     }
 
@@ -356,6 +360,13 @@
       }
       .card {
         padding: 2rem 1.5rem;
+      }
+      .corner-text {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+      .corner-cta.visible .corner-text {
+        max-width: min(16rem, 54vw);
       }
     }
   </style>
@@ -417,7 +428,7 @@
       <div class="joke-text" id="joke"></div>
       <button class="copy-btn" id="copy-btn" onclick="event.stopPropagation(); copyJoke()" title="Copy joke">
         <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        <span class="copy-label" id="copy-label">Copy</span>
+        <span class="copy-label" id="copy-label"></span>
       </button>
     </div>
 
@@ -512,8 +523,9 @@
       'Need a different kind of rush?',
       'This was the warm-up',
     ];
-    let ctaQaIdx = 0;
-    let ctaKrownIdx = 0;
+    function pickCtaLine(lines) {
+      return lines[Math.floor(Math.random() * lines.length)];
+    }
     let ctaTurn = 'krown'; // start with krown
 
     const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
@@ -624,7 +636,7 @@
         label.textContent = 'Copied!';
         setTimeout(() => {
           btn.classList.remove('copied');
-          label.textContent = 'Copy';
+          label.textContent = '';
         }, 1500);
       });
     }
@@ -657,14 +669,12 @@
       if (jokeCount > 1 && jokeCount % 3 === 0) {
         if (ctaTurn === 'krown') {
           ctaQaEl.classList.remove('visible');
-          ctaKrownTextEl.textContent = KROWN_CTA_LINES[ctaKrownIdx % KROWN_CTA_LINES.length];
-          ctaKrownIdx++;
+          ctaKrownTextEl.textContent = pickCtaLine(KROWN_CTA_LINES);
           ctaKrownEl.classList.add('visible');
           ctaTurn = 'qa';
         } else {
           ctaKrownEl.classList.remove('visible');
-          ctaQaTextEl.textContent = QA_CTA_LINES[ctaQaIdx % QA_CTA_LINES.length];
-          ctaQaIdx++;
+          ctaQaTextEl.textContent = pickCtaLine(QA_CTA_LINES);
           ctaQaEl.classList.add('visible');
           ctaTurn = 'krown';
         }
