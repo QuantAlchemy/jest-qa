@@ -523,8 +523,9 @@
       'Need a different kind of rush?',
       'This was the warm-up',
     ];
-    let ctaQaIdx = 0;
-    let ctaKrownIdx = 0;
+    function pickCtaLine(lines) {
+      return lines[Math.floor(Math.random() * lines.length)];
+    }
     let ctaTurn = 'krown'; // start with krown
 
     const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
@@ -668,14 +669,12 @@
       if (jokeCount > 1 && jokeCount % 3 === 0) {
         if (ctaTurn === 'krown') {
           ctaQaEl.classList.remove('visible');
-          ctaKrownTextEl.textContent = KROWN_CTA_LINES[ctaKrownIdx % KROWN_CTA_LINES.length];
-          ctaKrownIdx++;
+          ctaKrownTextEl.textContent = pickCtaLine(KROWN_CTA_LINES);
           ctaKrownEl.classList.add('visible');
           ctaTurn = 'qa';
         } else {
           ctaKrownEl.classList.remove('visible');
-          ctaQaTextEl.textContent = QA_CTA_LINES[ctaQaIdx % QA_CTA_LINES.length];
-          ctaQaIdx++;
+          ctaQaTextEl.textContent = pickCtaLine(QA_CTA_LINES);
           ctaQaEl.classList.add('visible');
           ctaTurn = 'krown';
         }
