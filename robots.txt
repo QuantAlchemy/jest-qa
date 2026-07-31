@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jest.quantalchemy.io/sitemap.xml
